@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const MONGODB_CONNECTION_STRING =
-  "mongodb+srv://Cooper:fFSLLxsmkFbkDx2@cluster0.snmbe.mongodb.net/audio-app-data?retryWrites=true&w=majority";
+require("dotenv").config();
+const MONGO_CONNECTION_STRING = process.env.MONGODB_CONNECTION_STRING;
 
 const cors = require("cors");
 
@@ -14,7 +14,7 @@ require("./models/quote");
 require("./models/Product");
 
 mongoose
-  .connect(MONGODB_CONNECTION_STRING, {
+  .connect(MONGO_CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
