@@ -1,0 +1,84 @@
+.best-audio-section {
+  height: 70vh;
+  width: 100%;
+  margin-top: 10em;
+  margin-bottom: 10em;
+}
+
+.best-audio-img {
+  /* background-image: url("/public/image-best-gear.jpg"); */
+  background-size: cover;
+  width: 100%;
+  height: 15em;
+  margin: 0em auto 2em auto;
+}
+
+.best-audio-wrap {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-family: "manrope";
+}
+
+.best-audio-img {
+  width: 75%;
+  border-radius: 0.5em;
+}
+
+.about-copy {
+  width: 75%;
+  margin: auto;
+}
+
+.best-audio-wrap h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1.3em;
+}
+
+.best-audio-wrap span {
+  color: #d87d4a;
+}
+
+@media screen and (min-width: 768px) {
+  .best-audio-img {
+    width: 100%;
+    height: 20em;
+    /* background-image: url("/public/assets/shared/tablet/image-best-gear.jpg"); */
+  }
+
+  .best-audio-wrap {
+    width: 90%;
+  }
+  .best-audio-section {
+    height: 60vh;
+    font-size: 1.3em;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .best-audio-img {
+    width: 50%;
+    height: 20em;
+    /* background-image: url("client/public/assets/shared/tablet/image-best-gear.jpg"); */
+    background-position-x: -13em;
+  }
+
+  .best-audio-wrap {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .about-copy {
+    text-align: left;
+    width: 50%;
+    padding: 3em 3em 3em 0;
+    font-size: 0.9em;
+  }
+  .best-audio-section {
+    height: 40vh;
+    font-size: 1.3em;
+  }
+}

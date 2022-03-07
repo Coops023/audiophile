@@ -11,6 +11,7 @@ app.use(cors());
 
 //import your models
 require("./models/quote");
+require("./models/Product");
 
 mongoose
   .connect(MONGODB_CONNECTION_STRING, {
@@ -25,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //import routes
-require("./routes/quoteRoute.js")(app);
+require("./routes/route.js")(app);
 
 const PORT = process.env.PORT || 5000;
 

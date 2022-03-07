@@ -1,0 +1,92 @@
+img {
+  width: 10em;
+  position: relative;
+  bottom: 3em;
+}
+
+.speaker-card {
+  background-color: white;
+  width: 88%;
+  margin: auto;
+  height: 30em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d87d4a;
+  border-radius: 0.5em;
+  background-image: url("../assets/pattern-circles.svg");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: -20.3em;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: 86%;
+  font-family: "manrope";
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.5em;
+}
+
+.container h3 {
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.black-btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  padding: 10px 25px;
+}
+.black-btn:hover {
+  color: lightgray;
+}
+.black-btn:active {
+  color: lightgray;
+}
+
+@media screen and (min-width: 768px) {
+  .black-btn {
+    margin-top: 1.8em;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    height: 26em;
+    overflow: hidden;
+    background-position-x: -10em;
+    background-position-y: center;
+    padding: 0em 3em 0 3em;
+  }
+
+  .zx9-wrap {
+    margin-left: 10em;
+  }
+
+  .zx9-wrap p {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-size: 1.5em;
+  }
+  .zx9-wrap h3 {
+    font-size: 2.5em;
+  }
+
+  img {
+    width: 20em;
+    bottom: 0;
+  }
+}
