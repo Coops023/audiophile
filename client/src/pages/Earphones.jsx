@@ -16,14 +16,14 @@ export default function Earphones() {
 
   useEffect(() => {
     dispatch(listEarphones());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
       <div className="page-heading">
         <h2>Earphones</h2>
       </div>
-      {loading || earphones.item === undefined ? (
+      {earphones.item === undefined ? (
         <h1>loading...</h1>
       ) : error ? (
         <h1>error</h1>
