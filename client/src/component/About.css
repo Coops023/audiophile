@@ -6,7 +6,7 @@
 }
 
 .best-audio-img {
-  /* background-image: url("/public/image-best-gear.jpg"); */
+  background-image: url("../assets/image-best-gear.jpg");
   background-size: cover;
   width: 100%;
   height: 15em;
@@ -45,7 +45,7 @@
   .best-audio-img {
     width: 100%;
     height: 20em;
-    /* background-image: url("/public/assets/shared/tablet/image-best-gear.jpg"); */
+    background-image: url("../assets/shared/tablet/image-best-gear.jpg");
   }
 
   .best-audio-wrap {

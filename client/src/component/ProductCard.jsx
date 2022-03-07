@@ -8,7 +8,7 @@ export default function ProductCard() {
       <div className="section-1-card">
         <img
           className="section-1-img"
-          src="../assets/image-category-thumbnail-headphones.png"
+          src="/images/image-category-thumbnail-headphones.png"
           alt="image of headphones"
         />
         <h3>Headphones</h3>
@@ -33,7 +33,7 @@ export default function ProductCard() {
       <div className="section-1-card">
         <img
           className="section-1-img"
-          src="/image-category-thumbnail-speakers.png"
+          src="/images/image-category-thumbnail-speakers.png"
           alt="image of headphones"
         />
         <h3>Speakers</h3>
@@ -58,7 +58,7 @@ export default function ProductCard() {
       <div className="section-1-card">
         <img
           className="section-1-img"
-          src="../assets/image-category-thumbnail-earphones.png"
+          src="/images/image-category-thumbnail-earphones.png"
           alt="image of headphones"
         />
         <h3>Earphones</h3>

@@ -9,7 +9,7 @@ export default function Zx9SpeakerCard() {
     <>
       <article className="speaker-card">
         <div className="container">
-          <img src="./image-speaker-zx9.png" alt="speaker" />
+          <img src="/images/image-speaker-zx9.png" alt="speaker" />
           <div className="zx9-wrap">
             <h3>ZX9 speaker</h3>
             <p>

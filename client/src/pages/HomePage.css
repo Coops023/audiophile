@@ -5,7 +5,7 @@
 }
 
 .header-content-wrap {
-  /* background-image: url("../assets/image-header.jpg"); */
+  background-image: url("../assets/image-header.jpg");
   background-size: cover;
   background-position-y: -5em;
   background-position-x: center;
@@ -100,7 +100,7 @@
 
 @media screen and (min-width: 1000px) {
   .header-content-wrap {
-    /* background-image: url("../assets/image-hero.jpg"); */
+    background-image: url("../assets/image-hero.jpg");
     background-position-y: -2em;
     background-position-x: 15em;
     align-items: flex-start;
