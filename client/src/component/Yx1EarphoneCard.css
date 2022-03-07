@@ -1,0 +1,56 @@
+.yx1 {
+  font-family: "manrope";
+}
+
+.img-yx1 {
+  background-image: url("../assets/image-earphones-yx1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  border-radius: 0.5em;
+  height: 30vh;
+  width: 75%;
+  margin: auto;
+}
+
+.yx1-heading-btn {
+  background-color: #f1f1f1;
+  border-radius: 0.5em;
+  height: 30vh;
+  width: 75%;
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 15px;
+}
+.yx1-heading-btn h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  .yx1 {
+    display: flex;
+    width: 88%;
+    margin: auto;
+  }
+
+  .yx1-heading-btn {
+    padding-left: 1em;
+    margin: 0;
+    padding-left: 3em;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .yx1 {
+    height: 10em !important;
+  }
+
+  .img-yx1 {
+    background-position-y: -5em;
+  }
+}

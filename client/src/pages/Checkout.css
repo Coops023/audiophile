@@ -1,0 +1,131 @@
+.checkout {
+  font-family: manrope;
+  min-height: 130%;
+}
+
+.back-btn {
+  border: none;
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.checkout-form {
+  width: 80%;
+  margin: auto;
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-form h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.checkout-form h5 {
+  text-transform: uppercase;
+  color: #d87d4a;
+  margin-top: 1.5em;
+}
+
+.checkout-form label {
+  font-weight: bold;
+  margin-bottom: 0.7em;
+  margin-top: 0.7em;
+}
+
+.form-text-input {
+  padding: 5px 15px;
+  border-radius: 0.5em;
+  border: 0.8px solid lightgray;
+}
+
+.checkbox-wrap {
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+  padding: 0 1em;
+}
+
+.checkbox-wrap input {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  margin-right: 1em;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-wrap input:checked {
+  background-color: #d87d4a;
+}
+
+.emoney-show {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.item-wrap img {
+  width: 4em;
+  height: 4em;
+  margin-right: 1em;
+  position: relative;
+  top: 1px;
+  border-radius: 0.5em;
+}
+
+.item-wrap h6 {
+  font-weight: bold;
+  text-align: left;
+}
+.price-qty-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.total-checkout {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3em 0;
+}
+
+.total-checkout span:nth-child(2) {
+  font-weight: bold;
+}
+
+.total-final {
+  padding-top: 0.7em;
+  padding-bottom: 1em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-final span:nth-child(2) {
+  color: #d87d4a;
+  font-weight: bold;
+}
+
+.orange-btn {
+  border: none;
+  margin-bottom: 3em;
+}
+
+.summary {
+  margin-top: 2em;
+}

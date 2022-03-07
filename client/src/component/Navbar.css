@@ -1,0 +1,51 @@
+.navbar-bg {
+  background-color: #191919;
+}
+
+.navbar-toggler {
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-brand {
+    margin-right: 23em;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .navbar-bg {
+    background-color: #191919;
+    border-bottom: 1px solid #191919;
+  }
+  .navbar {
+    margin: 0 5em;
+    text-transform: uppercase;
+  }
+
+  .nav-order-wrap {
+    display: flex;
+    width: 70%;
+
+    align-items: center;
+  }
+
+  .navbar-brand {
+    width: 20%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-order:nth-child(1) {
+    order: 2;
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  .nav-order-wrap {
+    width: 65%;
+  }
+}
+@media screen and (min-width: 1650px) {
+  .nav-order-wrap {
+    width: 62%;
+  }
+}

@@ -1,8 +1,8 @@
 import React from "react";
 import "./Zx9SpeakerCard.css";
 import { Link } from "react-router-dom";
-// import Z7xSpeakerCard from "./Z7xSpeakerCard";
-// import Yx1EarphoneCard from "./Yx1EarphoneCard";
+import Z7xSpeakerCard from "./Z7xSpeakerCard";
+import Yx1EarphoneCard from "./Yx1EarphoneCard";
 
 export default function Zx9SpeakerCard() {
   return (
@@ -23,8 +23,8 @@ export default function Zx9SpeakerCard() {
           </div>
         </div>
       </article>
-      {/* <Z7xSpeakerCard />
-      <Yx1EarphoneCard /> */}
+      <Z7xSpeakerCard />
+      <Yx1EarphoneCard />
     </>
   );
 }
