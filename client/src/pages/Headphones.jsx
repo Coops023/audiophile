@@ -14,7 +14,7 @@ export default function Headphones() {
 
   // getHeadphones gets the current state of headphones from server
   const getHeadphones = useSelector((state) => state.getHeadphones);
-  console.log("state line 18", getHeadphones);
+  // console.log("state line 18", getHeadphones);
   const { headphones, loading, error } = getHeadphones;
 
   useEffect(() => {
