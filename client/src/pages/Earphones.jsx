@@ -11,7 +11,7 @@ import { getEarphones as listEarphones } from "../redux/actions/productActions";
 export default function Earphones() {
   const dispatch = useDispatch();
   const getEarphones = useSelector((state) => state.getEarphones);
-  // console.log("state line 18", getEarphones);
+  console.log("state line 18", getEarphones);
   const { earphones, loading, error } = getEarphones;
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Earphones() {
       {earphones.item === undefined ? (
         <h1>loading...</h1>
       ) : error ? (
-        <h1>error</h1>
+        <h1>{error}</h1>
       ) : (
         earphones.item
           .map((earphone) => {
