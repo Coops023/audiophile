@@ -1,15 +1,14 @@
 import "./quote.css";
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import QuotePage from "./pages/QuotePage";
-import Quote from "./component/quote";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Route exact path="/">
-          <QuotePage />
+          <HomePage />
         </Route>
       </Router>
     </div>

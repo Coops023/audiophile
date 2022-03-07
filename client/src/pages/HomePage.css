@@ -1,0 +1,129 @@
+.home-header {
+  height: 70vh;
+  width: 100%;
+  color: white;
+}
+
+.header-content-wrap {
+  /* background-image: url("../assets/image-header.jpg"); */
+  background-size: cover;
+  background-position-y: -5em;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 3.5em;
+  padding-right: 3.5em;
+}
+
+.header-content-wrap span {
+  font-size: 14px;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 250, 0.4);
+  letter-spacing: 10px;
+  font-family: "manrope";
+  line-height: 19px;
+}
+
+.header-content-wrap h1 {
+  font-family: "manrope";
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 58px;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5em;
+}
+
+.header-content-wrap p {
+  font-family: "manrope";
+  font-size: 14px;
+  line-height: 25px;
+  color: rgba(241, 241, 241, 0.7);
+}
+
+.orange-btn {
+  text-decoration: none;
+  color: white;
+  background-color: #d87d4a;
+  text-transform: uppercase;
+  font-family: "manrope";
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 25px;
+  margin-top: 0.8em;
+}
+
+.orange-btn:hover {
+  color: white;
+}
+
+.orange-btn:active {
+  color: rgba(241, 241, 241, 0.7);
+}
+
+@media screen and (min-width: 768px) {
+  .header-content-wrap {
+    background-position-y: -12em;
+    background-size: 80%;
+    background-color: #191919;
+  }
+  .header-content-wrap p {
+    font-family: "manrope";
+    font-size: 20px;
+    line-height: 25px;
+    color: rgba(241, 241, 241, 0.7);
+  }
+  .header-content-wrap span {
+    font-size: 20px;
+  }
+
+  .header-content-wrap h1 {
+    font-family: "manrope";
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 58px;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5em;
+  }
+
+  .orange-btn {
+    padding: 15px 30px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .header-content-wrap {
+    /* background-image: url("../assets/image-hero.jpg"); */
+    background-position-y: -2em;
+    background-position-x: 15em;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding-right: 30em;
+    padding-left: 4em;
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 1450px) {
+  .header-content-wrap {
+    background-position-y: -4em;
+  }
+}
+@media screen and (min-width: 1650px) {
+  .header-content-wrap {
+    background-position-y: -6em;
+  }
+}
+@media screen and (min-width: 1850px) {
+  .header-content-wrap {
+    background-position-y: -8em;
+  }
+}
