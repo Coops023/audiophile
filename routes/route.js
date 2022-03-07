@@ -23,7 +23,7 @@ module.exports = (app) => {
     try {
       const item = await Product.find({ category: "headphones" });
       res.json({ item });
-      console.log(`Found ${item}`);
+      console.log(`Found ${item.length}`);
     } catch (err) {}
   });
 

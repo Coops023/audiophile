@@ -1,6 +1,6 @@
 import "./quote.css";
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Headphones from "./pages/Headphones";
 import Speakers from "./pages/Speakers";
@@ -12,12 +12,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Router>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/headphones" component={Headphones} />
-        <Route exact path="/earphones" component={Earphones} />
-        <Route exact path="/speakers" component={Speakers} />
-      </Router>
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/headphones" element={<Headphones />} />
+        <Route exact path="/earphones" element={<Earphones />} />
+        <Route exact path="/speakers" element={<Speakers />} />
+      </Routes>
       <Footer />
     </div>
   );

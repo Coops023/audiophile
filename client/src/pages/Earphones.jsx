@@ -30,6 +30,7 @@ export default function Earphones() {
       ) : (
         earphones.item
           .map((earphone) => {
+            console.log(earphone);
             return (
               <article className="product-card" key={earphone.id}>
                 <img
