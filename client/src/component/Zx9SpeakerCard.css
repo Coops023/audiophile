@@ -6,11 +6,12 @@ img {
 
 .speaker-card {
   background-color: white;
-  width: 88%;
+  width: 75%;
   margin: auto;
   height: 30em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: #d87d4a;
   border-radius: 0.5em;
@@ -56,6 +57,11 @@ img {
 @media screen and (min-width: 768px) {
   .black-btn {
     margin-top: 1.8em;
+  }
+
+  .speaker-card {
+    width: 88%;
+    padding-top: 15px;
   }
 }
 

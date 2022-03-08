@@ -23,7 +23,7 @@ export default function Earphones() {
       <div className="page-heading">
         <h2>Earphones</h2>
       </div>
-      {earphones.item === undefined ? (
+      {loading || earphones.item === undefined ? (
         <h1>loading...</h1>
       ) : error ? (
         <h1>{error}</h1>

@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
-import About from "../component/About";
-import ProductCard from "../component/ProductCard";
+// import About from "../components/About";
+// import ProductCard from "../components/ProductCard";
 import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
 
-export default function ProductDetails({ match, history }) {
+export default function ProductDetails() {
   // console.log(props, "line 23 props product details");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -174,8 +174,8 @@ export default function ProductDetails({ match, history }) {
         </>
       )}
 
-      <ProductCard />
-      <About />
+      {/* <ProductCard />
+      <About /> */}
     </section>
   );
 }

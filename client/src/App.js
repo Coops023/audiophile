@@ -1,4 +1,3 @@
-import "./quote.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -7,6 +6,7 @@ import Speakers from "./pages/Speakers";
 import Earphones from "./pages/Earphones";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
         <Route exact path="/headphones" element={<Headphones />} />
         <Route exact path="/earphones" element={<Earphones />} />
         <Route exact path="/speakers" element={<Speakers />} />
+        <Route exact path="/product/:id" element={<ProductDetails />} />
       </Routes>
       <Footer />
     </div>

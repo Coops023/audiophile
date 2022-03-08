@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Product = mongoose.model("Product");
+const { Types } = require("mongoose");
 
 module.exports = (app) => {
   app.get("/all-products", async (req, res) => {
