@@ -15,7 +15,7 @@ require("./models/quote");
 require("./models/Product");
 
 mongoose
-  .connect(MONGODB_URI, {
+  .connect(MONGO_CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
