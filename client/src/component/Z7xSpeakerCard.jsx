@@ -7,7 +7,10 @@ export default function Z7xSpeakerCard() {
     <article className="zx7">
       <div className="container-zx7">
         <h3 className="zx7-heading">ZX7 speaker</h3>
-        <Link className="transparent-btn" to="#">
+        <Link
+          className="transparent-btn"
+          to="/product/622737e754b0e992f8522894"
+        >
           See product
         </Link>
       </div>

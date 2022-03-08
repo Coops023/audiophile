@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Spinner from "../component/Spinner";
 import { addToCart, removeFromCart } from "../redux/actions/cartActions";
 import "./Cart.css";
 
@@ -32,7 +33,7 @@ export default function Cart(props) {
   }, []);
 
   return (
-    <div className="cart">
+    <div onClick={props.showCart} className="cart">
       {cart.cartItems === undefined ? (
         ""
       ) : (
@@ -45,7 +46,7 @@ export default function Cart(props) {
           </div>
 
           {cart.cartItems == undefined ? (
-            <h2>laoding..</h2>
+            <Spinner />
           ) : (
             cartItems.map((x) => {
               return (

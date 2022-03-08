@@ -7,6 +7,7 @@ import About from "../component/About";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getEarphones as listEarphones } from "../redux/actions/productActions";
+import Spinner from "../component/Spinner";
 
 export default function Earphones() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ export default function Earphones() {
         <h2>Earphones</h2>
       </div>
       {loading || earphones.item === undefined ? (
-        <h1>loading...</h1>
+        <Spinner />
       ) : error ? (
         <h1>{error}</h1>
       ) : (

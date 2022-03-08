@@ -7,6 +7,7 @@ import About from "../component/About";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getSpeakers as listSpeakers } from "../redux/actions/productActions";
+import Spinner from "../component/Spinner";
 
 export default function Speakers() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ export default function Speakers() {
         <h2>Speakers</h2>
       </div>
       {loading || speakers.item === undefined ? (
-        <h1>loading...</h1>
+        <Spinner />
       ) : (
         speakers.item
           .map((speaker) => {

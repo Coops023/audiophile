@@ -14,22 +14,22 @@ export default function Footer() {
       <div className="footer-content-wrap">
         <ul className="footer-links">
           <li>
-            <Link className="footer-nav" to="">
+            <Link className="footer-nav" to="/">
               Home
             </Link>{" "}
           </li>
           <li>
-            <Link className="footer-nav" to="">
+            <Link className="footer-nav" to="/headphones">
               Headphones
             </Link>
           </li>
           <li>
-            <Link className="footer-nav" to="#">
+            <Link className="footer-nav" to="/speakers">
               Speakers
             </Link>
           </li>
           <li>
-            <Link className="footer-nav" to="#">
+            <Link className="footer-nav" to="/earphones">
               Earphones
             </Link>
           </li>
@@ -43,9 +43,15 @@ export default function Footer() {
         <div className="copy-social">
           <p className="footer-copy">Copyright 2021. All Rights Reserved</p>{" "}
           <div className="logo-wrap">
-            <img src={Facebook} alt="facebook logo" srcset="" />
-            <img src={Twitter} alt="facebook logo" srcset="" />
-            <img src={Instagram} alt="facebook logo" srcset="" />
+            <a href="https://www.facebook.com">
+              <img src={Facebook} alt="facebook logo" srcset="" />
+            </a>
+            <a href={"https://www.twitter.com"}>
+              <img src={Twitter} alt="facebook logo" srcset="" />
+            </a>
+            <a href={"https://www.instagram.com"}>
+              <img src={Instagram} alt="facebook logo" srcset="" />
+            </a>
           </div>
         </div>
       </div>

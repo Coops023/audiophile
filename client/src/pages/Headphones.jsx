@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import ProductCard from "../component/ProductCard";
 import About from "../component/About";
+import Spinner from "../component/Spinner";
 
 //  IMPORTS FOR REDUX
 import { useSelector, useDispatch } from "react-redux";
@@ -27,7 +28,7 @@ export default function Headphones() {
         <h2>headphones</h2>
       </div>
       {loading || headphones.item === undefined ? (
-        <h1>loading...</h1>
+        <Spinner />
       ) : error ? (
         <h1>{error}</h1>
       ) : (

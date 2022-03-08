@@ -2,12 +2,19 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CheckoutModal from "../component/CheckoutModal";
 import "./Checkout.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+const baseUrl = "http://localhost:5000";
 
 export default function Checkout() {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
+  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [email, setEmail] = useState("");
   const [total, setTotal] = useState(0);
   const [shipping, setShipping] = useState(50);
   const [vat, setVat] = useState(0);
@@ -15,13 +22,32 @@ export default function Checkout() {
   const [emoney, setEmoney] = useState(false);
   const [modal, setModal] = useState(false);
 
-  const showModal = () => {
-    if (modal) {
-      setModal(false);
-    } else {
-      setModal(true);
-    }
+  const handleEmail = (e) => setEmail(e.target.value);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Create an object representing the request body
+    const requestBody = { email };
+
+    // Make an axios request to the API
+    axios
+      .post(`${baseUrl}/checkout-submit`, requestBody)
+      .then((response) => {
+        console.log("all good here", response);
+      })
+      .catch((error) => {
+        const errorDescription = error.response;
+        setErrorMessage(errorDescription);
+      });
   };
+
+  // const showModal = () => {
+  //   if (modal) {
+  //     setModal(false);
+  //   } else {
+  //     setModal(true);
+  //   }
+  // };
 
   const cartTotal = async () => {
     try {
@@ -67,8 +93,10 @@ export default function Checkout() {
     <div className="checkout">
       {modal ? <CheckoutModal total={grandTotal} /> : ""}
 
-      <button className="back-btn">Go Back</button>
-      <form className="checkout-form">
+      <button type="button" className="back-btn">
+        Go Back
+      </button>
+      <form onSubmit={handleSubmit} className="checkout-form">
         <h2>checkout</h2>
         <h5>billing details</h5>
         <label for="name">Name</label>
@@ -85,6 +113,8 @@ export default function Checkout() {
           className="form-text-input"
           name="email"
           type="text"
+          value={email}
+          onChange={handleEmail}
           placeholder="axel@gmail.com"
           required="true"
         />
@@ -220,7 +250,7 @@ export default function Checkout() {
             ${Math.floor(grandTotal).toLocaleString()}
           </span>
         </div>
-        <button onClick={showModal} type="submit" className="orange-btn">
+        <button type="submit" className="orange-btn">
           Continue & Pay
         </button>
       </form>

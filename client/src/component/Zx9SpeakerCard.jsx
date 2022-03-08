@@ -16,7 +16,7 @@ export default function Zx9SpeakerCard() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <Link className="black-btn" to="#">
+            <Link className="black-btn" to="/product/622737e754b0e992f852289d">
               {" "}
               See product
             </Link>

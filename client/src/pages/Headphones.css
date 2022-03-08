@@ -100,3 +100,8 @@
     width: 20%;
   }
 }
+@media screen and (min-height: 400px) {
+  .product-image {
+    width: 25%;
+  }
+}

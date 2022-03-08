@@ -2,13 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 require("dotenv").config();
-const MONGO_CONNECTION_STRING = process.env.MONGODB_CONNECTION_STRING;
-const MONGODB_URI = `${process.env.MONGODB_URL}/${process.env.DB_NAME}`;
-
 const cors = require("cors");
 
 const app = express();
 app.use(cors());
+
+const MONGO_CONNECTION_STRING = process.env.MONGODB_CONNECTION_STRING;
+const MONGODB_URI = `${process.env.MONGODB_URL}/${process.env.DB_NAME}`;
 
 //import your models
 require("./models/quote");

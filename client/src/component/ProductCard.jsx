@@ -62,7 +62,7 @@ export default function ProductCard() {
           alt="image of headphones"
         />
         <h3>Earphones</h3>
-        <Link className="section-1-btn" to="#">
+        <Link className="section-1-btn" to="/earphones">
           Shop{" "}
           <svg
             className="shop-arrow"

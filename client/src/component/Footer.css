@@ -96,3 +96,10 @@ li {
     width: 60%;
   }
 }
+
+@media screen and (min-width: 320px) {
+  .footer {
+    height: 80vh;
+    margin-top: 5em;
+  }
+}

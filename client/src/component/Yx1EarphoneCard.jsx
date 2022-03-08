@@ -9,7 +9,10 @@ export default function Yx1EarphoneCard() {
         <div className="img-yx1"></div>
         <div className="yx1-heading-btn">
           <h3>Yx1 earphones</h3>
-          <Link className="transparent-btn" to="#">
+          <Link
+            className="transparent-btn"
+            to="/product/622737e754b0e992f8522872"
+          >
             See product
           </Link>
         </div>

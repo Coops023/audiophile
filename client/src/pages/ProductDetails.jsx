@@ -7,6 +7,7 @@ import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
+import Spinner from "../component/Spinner";
 
 export default function ProductDetails() {
   // console.log(props, "line 23 props product details");
@@ -64,7 +65,7 @@ export default function ProductDetails() {
   return (
     <section className="product-details">
       {loading || product === undefined || product.item === undefined ? (
-        <h1>loading...</h1> //replace with spinner
+        <Spinner />
       ) : error ? (
         <div>{error}</div>
       ) : (
