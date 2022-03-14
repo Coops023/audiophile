@@ -60,13 +60,13 @@ export default function Checkout() {
     }
   };
 
-  // const showModal = () => {
-  //   if (modal) {
-  //     setModal(false);
-  //   } else {
-  //     setModal(true);
-  //   }
-  // };
+  const showModal = () => {
+    if (modal) {
+      setModal(false);
+    } else {
+      setModal(true);
+    }
+  };
 
   const cartTotal = async () => {
     try {
@@ -186,19 +186,18 @@ export default function Checkout() {
 
         <h5>Payment Details</h5>
 
-        <label>Payment method</label>
+        <p>Payment method</p>
         <div className="checkbox-wrap">
           <input
-            type="checkbox"
+            type="radio"
             name="e-money"
-            id=""
             value={emoney}
             onChange={emoneyHandler}
           />
           <label htmlFor="">e-Money</label>
         </div>
         <div className="checkbox-wrap">
-          <input type="checkbox" name="cash" id="" />
+          <input type="radio" name="cash" id="" />
           <label htmlFor="cash">Cash on delivery</label>
         </div>
         {emoney ? <CardElement /> : ""}
@@ -248,7 +247,7 @@ export default function Checkout() {
             ${Math.floor(grandTotal).toLocaleString()}
           </span>
         </div>
-        <button type="submit" className="orange-btn">
+        <button type="submit" onClick={showModal} className="orange-btn">
           Continue & Pay
         </button>
       </form>
