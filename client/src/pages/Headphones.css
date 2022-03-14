@@ -103,11 +103,20 @@
 
 @media screen and (min-width: 700px) and (min-height: 300px) {
   .product-image {
-    width: 30%;
+    width: 38%;
   }
 
-  .product-card {
-    height: 20em;
-    margin-top: 10em;
+  .product-card:nth-of-type(1) {
+    margin-top: 13em;
+  }
+  .product-card:nth-of-type(2) {
+    margin-top: 20em;
+  }
+  .product-card:nth-of-type(3) {
+    margin-top: 22em;
+  }
+
+  .page-heading {
+    margin-bottom: 0;
   }
 }
