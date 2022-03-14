@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 const Product = mongoose.model("Product");
 const { Types } = require("mongoose");
 
-const stripe = require("stripe")(process.env.STRIPE_KEY);
+const stripe = require("stripe")(
+  "sk_test_51Jey09LQy018j8J0fDowHIqE40KPFGrkUixNdBAfaytS98fSVY8LS07k2wX3sOJWIowO7LQcTcmMHhJAE69qjlmo00EjCm4nSd"
+);
 
 module.exports = (app) => {
   app.get("/all-products", async (req, res) => {
@@ -61,13 +63,36 @@ module.exports = (app) => {
     }
   });
 
-  app.post("/checkout-submit", (req, res) => {
-    const data = req.body;
+  const calculateOrderAmount = (items) => {
+    // Replace this constant with a calculation of the order's amount
+    // Calculate the order total on the server to prevent
+    // people from directly manipulating the amount on the client
+    return 1400;
+  };
+
+  app.post("/stripe/charge", async (req, res) => {
+    console.log("stripe-routes.js 9 | route reached", req.body);
+    let { amount, id } = req.body;
+    console.log("stripe-routes.js 10 | amount and id", amount, id);
     try {
-      console.log("checkout req.body", data);
-      res.json("hello world");
-    } catch (err) {
-      console.log("checkout submit err", err);
+      const payment = await stripe.paymentIntents.create({
+        amount: amount,
+        currency: "USD",
+        description: "Your Company Description",
+        payment_method: id,
+        confirm: true,
+      });
+      console.log("stripe-routes.js 19 | payment", payment);
+      res.json({
+        message: "Payment Successful",
+        success: true,
+      });
+    } catch (error) {
+      console.log("stripe-routes.js 17 | error", error);
+      res.json({
+        message: "Payment Failed",
+        success: false,
+      });
     }
   });
 };

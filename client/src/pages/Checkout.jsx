@@ -5,9 +5,13 @@ import "./Checkout.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+
 const baseUrl = "http://localhost:5000";
 
 export default function Checkout() {
+  const stripe = useStripe();
+  const elements = useElements();
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
@@ -24,30 +28,45 @@ export default function Checkout() {
 
   const handleEmail = (e) => setEmail(e.target.value);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = { email };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("grandTotal", grandTotal);
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
+    });
 
-    // Make an axios request to the API
-    axios
-      .post(`${baseUrl}/checkout-submit`, requestBody)
-      .then((response) => {
-        console.log("all good here", response);
-      })
-      .catch((error) => {
-        const errorDescription = error.response;
-        setErrorMessage(errorDescription);
-      });
-  };
+    if (!error) {
+      console.log("Stripe 23 | token generated!", paymentMethod);
+      try {
+        const { id } = paymentMethod;
+        const response = await axios.post(
+          "http://localhost:5000/stripe/charge",
+          {
+            amount: grandTotal,
+            id: id,
+          }
+        );
 
-  const showModal = () => {
-    if (modal) {
-      setModal(false);
+        console.log("Stripe 35 | data", response.data.success);
+        if (response.data.success) {
+          console.log("Checkout.js 25 | payment successful!");
+        }
+      } catch (error) {
+        console.log("Checkout.js 28 | ", error);
+      }
     } else {
-      setModal(true);
+      console.log(error.message);
     }
   };
+
+  // const showModal = () => {
+  //   if (modal) {
+  //     setModal(false);
+  //   } else {
+  //     setModal(true);
+  //   }
+  // };
 
   const cartTotal = async () => {
     try {
@@ -182,28 +201,7 @@ export default function Checkout() {
           <input type="checkbox" name="cash" id="" />
           <label htmlFor="cash">Cash on delivery</label>
         </div>
-        {emoney ? (
-          <>
-            <div className="emoney-show">
-              <label>e-Money Number</label>
-              <input
-                className="form-text-input"
-                type="text"
-                placeholder="12345566"
-              />
-            </div>
-            <div className="emoney-show">
-              <label>e-Money Pin</label>
-              <input
-                className="form-text-input"
-                type="text"
-                placeholder="1234"
-              />
-            </div>
-          </>
-        ) : (
-          ""
-        )}
+        {emoney ? <CardElement /> : ""}
 
         <h3 className="summary">Summary</h3>
         {cartItems.map((item) => {
@@ -250,7 +248,7 @@ export default function Checkout() {
             ${Math.floor(grandTotal).toLocaleString()}
           </span>
         </div>
-        <button type="submit" onClick={showModal} className="orange-btn">
+        <button type="submit" className="orange-btn">
           Continue & Pay
         </button>
       </form>

@@ -10,6 +10,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import ScrollToTop from "./component/ScrollToTop";
+import StripeContainer from "./component/StripeContainer";
 
 function App() {
   const [cart, setCart] = useState(false);
@@ -25,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <ScrollToTop />
+
       <Navbar showCart={showCart} />
       {!cart ? "" : <Cart showCart={showCart} />}
       <Routes>
@@ -33,7 +35,7 @@ function App() {
         <Route exact path="/earphones" element={<Earphones />} />
         <Route exact path="/speakers" element={<Speakers />} />
         <Route exact path="/product/:id" element={<ProductDetails />} />
-        <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/checkout" element={<StripeContainer />} />
       </Routes>
       <Footer />
     </div>
