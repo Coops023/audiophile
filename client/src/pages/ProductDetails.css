@@ -240,7 +240,7 @@
   }
 }
 
-@media screen and (min-width: 800px) and (min-height: 390px) {
+@media screen and (min-width: 700px) and (min-height: 300px) {
   .also-like-wrap {
     display: flex;
     flex-direction: column;

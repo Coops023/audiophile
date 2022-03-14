@@ -101,8 +101,8 @@ li {
   }
 }
 
-@media screen and (min-width: 800px) and (min-height: 390px) {
+@media screen and (min-width: 700px) and (min-height: 300px) {
   .footer {
-    height: 25em;
+    height: 27em;
   }
 }
