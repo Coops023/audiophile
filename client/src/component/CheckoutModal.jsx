@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import "./CheckoutModal.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCheck, faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 export default function CheckoutModal(props) {
   const dispatch = useDispatch();
@@ -14,7 +14,9 @@ export default function CheckoutModal(props) {
     <div className="checkout-modal">
       <div className="checkout-modal-wrap">
         <div className="tick-circle">
-          <span>{/* <FontAwesomeIcon icon={faCheck} /> */}</span>
+          <span>
+            <FontAwesomeIcon icon={faCheck} />
+          </span>
         </div>
         <h2>Thank you for your order</h2>
         <p>You will recieve an email confirmation shortly.</p>

@@ -43,13 +43,13 @@ export default function Footer() {
         <div className="copy-social">
           <p className="footer-copy">Copyright 2021. All Rights Reserved</p>{" "}
           <div className="logo-wrap">
-            <a href="https://www.facebook.com">
+            <a className="social-logo" href="https://www.facebook.com">
               <img src={Facebook} alt="facebook logo" srcset="" />
             </a>
-            <a href={"https://www.twitter.com"}>
+            <a className="social-logo" href={"https://www.twitter.com"}>
               <img src={Twitter} alt="facebook logo" srcset="" />
             </a>
-            <a href={"https://www.instagram.com"}>
+            <a className="social-logo" href={"https://www.instagram.com"}>
               <img src={Instagram} alt="facebook logo" srcset="" />
             </a>
           </div>

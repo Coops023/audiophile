@@ -127,3 +127,14 @@
     background-position-y: -8em;
   }
 }
+
+@media screen and (min-width: 800px) and (min-height: 390px) {
+  .home-header {
+    height: 20em;
+  }
+
+  .header-content-wrap {
+    height: fit-content;
+    padding-top: 3em;
+  }
+}

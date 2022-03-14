@@ -41,13 +41,13 @@ export default function Checkout() {
       });
   };
 
-  // const showModal = () => {
-  //   if (modal) {
-  //     setModal(false);
-  //   } else {
-  //     setModal(true);
-  //   }
-  // };
+  const showModal = () => {
+    if (modal) {
+      setModal(false);
+    } else {
+      setModal(true);
+    }
+  };
 
   const cartTotal = async () => {
     try {
@@ -250,7 +250,7 @@ export default function Checkout() {
             ${Math.floor(grandTotal).toLocaleString()}
           </span>
         </div>
-        <button type="submit" className="orange-btn">
+        <button type="submit" onClick={showModal} className="orange-btn">
           Continue & Pay
         </button>
       </form>

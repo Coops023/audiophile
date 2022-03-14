@@ -63,3 +63,9 @@
     width: 90%;
   }
 }
+
+@media screen and (min-width: 800px) and (min-height: 390px) {
+  .home-section-1 {
+    margin-top: 10em;
+  }
+}

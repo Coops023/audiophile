@@ -156,21 +156,24 @@ export default function ProductDetails() {
               <img src={product.item.gallery.third.mobile} alt="stock photp" />
             </div>
           </div>
+
           <h4 className="also-like-heading">you may also like</h4>
-          <div className="you-may-also-like">
-            {product.item.others.map((item) => {
-              return (
-                <div className="also-like-item">
-                  <div key={item._id}>
-                    <img src={item.image.mobile} alt="" srcset="" />
-                    <h5>{item.name}</h5>
-                    <Link className="orange-btn" to="#">
-                      see product
-                    </Link>
+          <div className="also-like-wrap">
+            <div className="you-may-also-like">
+              {product.item.others.map((item) => {
+                return (
+                  <div className="also-like-item">
+                    <div key={item._id}>
+                      <img src={item.image.mobile} alt="" srcset="" />
+                      <h5>{item.name}</h5>
+                      <Link className="orange-btn" to="#">
+                        see product
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </>
       )}

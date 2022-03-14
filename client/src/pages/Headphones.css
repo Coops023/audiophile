@@ -7,7 +7,7 @@
   height: 80vh;
   width: 100%;
   padding: 0 1.5em;
-  margin-bottom: 7em;
+  margin-bottom: 2em !important;
 }
 
 .page-heading {
@@ -100,8 +100,14 @@
     width: 20%;
   }
 }
-@media screen and (min-height: 400px) {
+
+@media screen and (min-width: 800px) and (min-height: 390px) {
   .product-image {
-    width: 25%;
+    width: 30%;
+  }
+
+  .product-card {
+    height: 20em;
+    margin-top: 15em;
   }
 }

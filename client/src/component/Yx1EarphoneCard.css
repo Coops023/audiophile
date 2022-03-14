@@ -46,10 +46,6 @@
 }
 
 @media screen and (min-width: 1250px) {
-  .yx1 {
-    height: 10em !important;
-  }
-
   .img-yx1 {
     background-position-y: -5em;
   }
