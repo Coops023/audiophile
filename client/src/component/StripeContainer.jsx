@@ -12,6 +12,8 @@ const stripePromise = loadStripe(
   "pk_test_51Jey09LQy018j8J0FHpZjB9d8gBSazYLkUC29LqxEJFZcTly2A7abc8BcV0S8rRmNFjrzf6g0QLNDBBVVQbkplBd000z23Z7cW"
 );
 
+const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 export default function App() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -21,42 +23,10 @@ export default function App() {
   const [vat, setVat] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
 
-  const cartTotal = async () => {
-    try {
-      setTotal(
-        cartItems.reduce((price, item) => item.price * item.qty + price, 0)
-      );
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const vatTotal = async () => {
-    try {
-      setVat((total * 20) / 100);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const grandTotalHandler = async () => {
-    try {
-      setGrandTotal(total + shipping);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    cartTotal();
-    vatTotal();
-    grandTotalHandler();
-  }, [cart, vat, grandTotal]);
-
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     console.log("grand total", grandTotal);
-    fetch("/create-payment-intent", {
+    fetch(`/create-payment-intent`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: cartItems }),

@@ -63,14 +63,14 @@ module.exports = (app) => {
 
   //stripe routes
   const calculateOrderAmount = (items) => {
-    let total = 0;
-    let vat = (total * 20) / 100;
-    const shipping = 5000;
-    for (let element of items) {
-      total = element.price * element.qty * 100;
-    }
+    // let total = 0;
+    // let vat = (total * 20) / 100;
+    // const shipping = 5000;
+    // for (let element of items) {
+    //   total = element.price * element.qty * 100;
+    // }
 
-    return 1000;
+    return 10000;
   };
 
   app.post("/create-payment-intent", async (req, res) => {
