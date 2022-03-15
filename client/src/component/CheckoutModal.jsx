@@ -22,7 +22,7 @@ export default function CheckoutModal(props) {
         <p>You will recieve an email confirmation shortly.</p>
 
         {cartItems[0] == undefined ? (
-          <h2>Cart Empty</h2>
+          ""
         ) : (
           <>
             <div className="item-wrap-modal">
