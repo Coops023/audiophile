@@ -70,13 +70,12 @@ module.exports = (app) => {
       total = element.price * element.qty * 100;
     }
 
-    return total + vat + shipping;
+    return 1000;
   };
 
   app.post("/create-payment-intent", async (req, res) => {
     const { items } = req.body;
 
-    console.log("items in cart", items[0].price);
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
       amount: calculateOrderAmount(items),
