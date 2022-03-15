@@ -62,31 +62,30 @@ module.exports = (app) => {
   });
 
   //stripe routes
-  const calculateOrderAmount = (items) => {
-    // let total = 0;
-    // let vat = (total * 20) / 100;
-    // const shipping = 5000;
-    // for (let element of items) {
-    //   total = element.price * element.qty * 100;
-    // }
 
-    return 10000;
-  };
-
-  app.post("/create-payment-intent", async (req, res) => {
-    const { items } = req.body;
-
-    // Create a PaymentIntent with the order amount and currency
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: calculateOrderAmount(items),
-      currency: "eur",
-      automatic_payment_methods: {
-        enabled: true,
-      },
-    });
-
-    res.send({
-      clientSecret: paymentIntent.client_secret,
-    });
+  app.post("/stripe/charge", async (req, res) => {
+    console.log("stripe-routes.js 9 | route reached", req.body);
+    let { amount, id } = req.body;
+    console.log("stripe-routes.js 10 | amount and id", amount, id);
+    try {
+      const payment = await stripe.paymentIntents.create({
+        amount: amount,
+        currency: "USD",
+        description: "Your Company Description",
+        payment_method: id,
+        confirm: true,
+      });
+      console.log("stripe-routes.js 19 | payment", payment);
+      res.json({
+        message: "Payment Successful",
+        success: true,
+      });
+    } catch (error) {
+      console.log("stripe-routes.js 17 | error", error);
+      res.json({
+        message: "Payment Failed",
+        success: false,
+      });
+    }
   });
 };

@@ -5,11 +5,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import React, { useEffect, useState } from "react";
-import {
-  PaymentElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+
+const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -20,13 +18,12 @@ export default function CheckoutForm() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  const [errorMessage, setErrorMessage] = useState(undefined);
   const [email, setEmail] = useState("");
   const [total, setTotal] = useState(0);
   const [shipping, setShipping] = useState(50);
   const [vat, setVat] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
-  const [emoney, setEmoney] = useState(false);
+
   const [modal, setModal] = useState(false);
 
   const [message, setMessage] = useState(null);
@@ -74,69 +71,32 @@ export default function CheckoutForm() {
     grandTotalHandler();
   }, [cart, vat, grandTotal]);
 
-  useEffect(() => {
-    if (!stripe) {
-      return;
-    }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
+    });
 
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
+    if (!error) {
+      console.log("Stripe 23 | token generated!", paymentMethod);
+      try {
+        const { id } = paymentMethod;
+        const response = await axios.post(`${baseUrl}/stripe/charge`, {
+          amount: 999,
+          id: id,
+        });
 
-    if (!clientSecret) {
-      return;
-    }
-
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      switch (paymentIntent.status) {
-        case "succeeded":
-          setMessage("Payment succeeded!");
-          break;
-        case "processing":
-          setMessage("Your payment is processing.");
-          break;
-        case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
-          break;
-        default:
-          setMessage("Something went wrong.");
-          break;
+        console.log("Stripe 35 | data", response.data.success);
+        if (response.data.success) {
+          console.log("CheckoutForm.js 25 | payment successful!");
+        }
+      } catch (error) {
+        console.log("CheckoutForm.js 28 | ", error);
       }
-    });
-  }, [stripe]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
-      return;
-    }
-
-    setIsLoading(true);
-
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        // Make sure to change this to your payment completion page
-
-        return_url: "http://localhost:3000/checkout-modal",
-      },
-    });
-
-    // This point will only be reached if there is an immediate error when
-    // confirming the payment. Otherwise, your customer will be redirected to
-    // your `return_url`. For some payment methods like iDEAL, your customer will
-    // be redirected to an intermediate site first to authorize the payment, then
-    // redirected to the `return_url`.
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
     } else {
-      setMessage("An unexpected error occured.");
+      console.log(error.message);
     }
-
-    setIsLoading(false);
   };
 
   return (
@@ -216,23 +176,8 @@ export default function CheckoutForm() {
 
         <h5>Payment Details</h5>
 
-        <p>Payment method</p>
-        <PaymentElement id="payment-element" />
-        <button
-          className="orange-btn"
-          disabled={isLoading || !stripe || !elements}
-          id="submit"
-        >
-          <span id="button-text">
-            {isLoading ? (
-              <div className="spinner" id="spinner"></div>
-            ) : (
-              "Pay now"
-            )}
-          </span>
-        </button>
-        {/* Show any error or success messages */}
-        {message && <div id="payment-message">{message}</div>}
+        <CardElement />
+        <button className="orange-btn">Pay</button>
 
         <h3 className="summary">Summary</h3>
         {cartItems.map((item) => {
