@@ -5,10 +5,11 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 45rem;
   font-family: "manrope";
   text-align: center;
   padding: 0 2em;
+  margin-top: 5em;
   border-top: 3px solid #d87d4a;
 }
 .footer-links {
@@ -52,7 +53,7 @@ li {
 @media screen and (min-width: 768px) {
   .footer {
     align-items: baseline;
-    height: 30em;
+    height: 30rem !important;
   }
 
   .footer-content-wrap {
@@ -91,6 +92,10 @@ li {
 }
 
 @media screen and (min-width: 1000px) {
+  .footer {
+    height: 25rem !important;
+  }
+
   .logo-wrap img {
     margin-top: 0em;
   }
@@ -103,12 +108,12 @@ li {
   }
 }
 
-@media screen and (min-width: 320px) {
+/* @media screen and (min-width: 320px) {
   .footer {
     height: 80vh;
     margin-top: 5em;
   }
-}
+} */
 
 @media screen and (min-width: 700px) and (min-height: 300px) {
   .footer {

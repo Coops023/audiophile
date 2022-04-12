@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Headphones from "./pages/Headphones";
@@ -11,17 +11,11 @@ import Cart from "./pages/Cart";
 
 import ScrollToTop from "./component/ScrollToTop";
 import StripeContainer from "./component/StripeContainer";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import CheckoutModal from "./component/CheckoutModal";
 
-const stripePromise = loadStripe(
-  "pk_test_51Jey09LQy018j8J0FHpZjB9d8gBSazYLkUC29LqxEJFZcTly2A7abc8BcV0S8rRmNFjrzf6g0QLNDBBVVQbkplBd000z23Z7cW"
-);
+import CheckoutModal from "./component/CheckoutModal";
 
 function App() {
   const [cart, setCart] = useState(false);
-  const [clientSecret, setClientSecret] = useState("");
 
   const showCart = () => {
     if (cart) {

@@ -21,7 +21,7 @@ export default function ProductDetails() {
   const [features, setFeatures] = useState("");
 
   const productDetails = useSelector((state) => state.getProductDetails);
-  console.log("state line 18", productDetails);
+  // console.log("state line 18", productDetails);
   const { product, loading, error } = productDetails;
 
   useEffect(() => {
@@ -39,29 +39,10 @@ export default function ProductDetails() {
   };
 
   const addToCartHandler = () => {
-    console.log("product cart handler", product.item._id);
+    // console.log("product cart handler", product.item._id);
     dispatch(addToCart(product.item._id, productQuantity));
   };
 
-  const seperateParagraph = async () => {
-    try {
-      const { product } = await productDetails;
-      console.log("line 72 ProDeit", product);
-
-      setFeatures(product.item.features.split(/\n/));
-    } catch (err) {
-      console.log("error parapgraph function", err);
-    }
-  };
-
-  useEffect(() => {
-    seperateParagraph();
-  }, []);
-
-  // if (isLoading) {
-  //   // change for a nice loading spinner
-  //   return <h2>Loading</h2>;
-  // }
   return (
     <section className="product-details">
       {loading || product === undefined || product.item === undefined ? (
@@ -126,11 +107,11 @@ export default function ProductDetails() {
                 </div>
               </div>
             </div>
+
             <div className="features-contents">
               <div className="features">
                 <h4>Features</h4>
-                <p>{features[0]}</p>
-                <p>{features[2]}</p>
+                <p>{product.item.features.split(/\n/)}</p>
               </div>
               <div className="in-the-box">
                 <h4>in the box</h4>
@@ -164,7 +145,7 @@ export default function ProductDetails() {
                 return (
                   <div className="also-like-item">
                     <div key={item._id}>
-                      <img src={item.image.mobile} alt="" srcset="" />
+                      <img src={item.image.mobile} alt="" srcSet="" />
                       <h5>{item.name}</h5>
                       <Link className="orange-btn" to="#">
                         see product

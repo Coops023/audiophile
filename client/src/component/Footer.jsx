@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="orange-top"></div>
-      <img className="audio-logo" src={Logo} alt="" srcset="" />
+      <img className="audio-logo" src={Logo} alt="" srcSet="" />
       <div className="footer-content-wrap">
         <ul className="footer-links">
           <li>
@@ -44,13 +44,13 @@ export default function Footer() {
           <p className="footer-copy">Copyright 2021. All Rights Reserved</p>{" "}
           <div className="logo-wrap">
             <a className="social-logo" href="https://www.facebook.com">
-              <img src={Facebook} alt="facebook logo" srcset="" />
+              <img src={Facebook} alt="facebook logo" srcSet="" />
             </a>
             <a className="social-logo" href={"https://www.twitter.com"}>
-              <img src={Twitter} alt="facebook logo" srcset="" />
+              <img src={Twitter} alt="facebook logo" srcSet="" />
             </a>
             <a className="social-logo" href={"https://www.instagram.com"}>
-              <img src={Instagram} alt="facebook logo" srcset="" />
+              <img src={Instagram} alt="facebook logo" srcSet="" />
             </a>
           </div>
         </div>

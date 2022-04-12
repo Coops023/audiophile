@@ -3,8 +3,8 @@ import "./Spinner.css";
 
 export default function Spinner() {
   return (
-    <div class="spinner-border text-dark" role="status">
-      <span class="visually-hidden">Loading...</span>
+    <div className="spinner-border text-dark" role="status">
+      <span className="visually-hidden">Loading...</span>
     </div>
   );
 }
