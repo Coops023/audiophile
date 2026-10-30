@@ -39,27 +39,37 @@ module.exports = (app) => {
   });
 
   // get item by id
-  app.get("/product/:id", async (req, res) => {
-    const { id } = req.params;
-    console.log("server 47", id);
-    if (!Types.ObjectId.isValid(id)) {
-      res.status(400).json({ message: "Specified id is not valid" });
-      return;
-    }
-    try {
-      const item = await Product.findById(id);
+  
+app.get("/product/:id", async (req, res) => {
+  const { id } = req.params;
 
-      if (!id) {
-        res.status(404).json({ message: `product not found ${id}` });
-        return;
-      }
+  if (!Types.ObjectId.isValid(id)) {
+    return res.status(400).json({
+      message: "Specified id is not valid",
+    });
+  }
 
-      res.json({ item });
-      console.log("found", item.name);
-    } catch (err) {
-      res.status(500).json(err);
+  try {
+    const item = await Product.findById(id);
+
+    if (!item) {
+      return res.status(404).json({
+        message: "Product not found",
+      });
     }
-  });
+
+    return res.json({ item });
+  } catch (err) {
+    console.error("Product lookup failed:", err);
+
+    if (!res.headersSent) {
+      return res.status(500).json({
+        message: "Failed to retrieve product",
+      });
+    }
+  }
+});
+
 
   //stripe routes
 
